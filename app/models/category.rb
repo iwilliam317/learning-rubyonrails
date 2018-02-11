@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-	has_many_and_belongs_to :posts
+	has_and_belongs_to_many  :posts
 	validates_presence_of :name
 end
