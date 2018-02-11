@@ -1,0 +1,29 @@
+<%= form_with(model: post, local: true) do |form| %>
+  
+  <%= error_messages_for @post%>
+
+   <div class="field">
+    <%= form.label :user_id, "Author" %>
+      <%= form.collection_select :user_id, @users, :id, :full_name, include_blank: true%>
+   </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title , :size => 50 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :excerpt %>
+    <%= form.text_field :excerpt, id: :post_excerpt,  :rows => 10, :cols => 80 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :post_body, :rows => 50, :cols => 80  %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

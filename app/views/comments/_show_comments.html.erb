@@ -1,0 +1,12 @@
+
+<% comments.each do |comment| %>
+
+<div id="comment_<%= comment.id %>"
+	<p>
+		<%= comment.author %><br/>
+		<%= comment.body %><br/>
+		Posted <%= time_ago_in_words comment.created_at %> ago<br />
+	</p>
+</div>
+<% end %>
+
