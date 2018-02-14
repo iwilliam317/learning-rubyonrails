@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :list_users, only: [:show, :edit, :update, :new, :create]
+  before_action :list_resources, only: [:show, :edit, :update, :new, :create]
 
 
   # GET /posts
@@ -42,6 +42,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    params[:post][:category_ids] ||= []
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -71,10 +73,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :excerpt, :body, :user_id)
+      params.require(:post).permit(:title, :excerpt, :body, :user_id, category_ids: [])
     end
 
-    def list_users
+    def list_resources
       @users = User.all
+      @categories = Category.all
     end
 end

@@ -10,16 +10,16 @@
     <%= form.text_field :email, id: :comment_email %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :comment_body %>
-  </div>
 
   <div class="field">
     <%= form.label :url %>
     <%= form.text_field :url, id: :comment_url %>
   </div>
 
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :comment_body , :rows=> 10, :cols=> 90 %>
+  </div>
  
   <div class="actions">
     <%= form.submit %>
