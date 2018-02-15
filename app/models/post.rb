@@ -4,5 +4,8 @@ class Post < ApplicationRecord
 
 	belongs_to :user
 
-	validates_presence_of  :title, :excerpt, :body
+	validates_presence_of  :title, :excerpt, :body, :permalink
+	validates_uniqueness_of :permalink
+	validates_inclusion_of :draft, :in => [true, false]  
+	validates_associated :user
 end
