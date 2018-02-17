@@ -9,15 +9,5 @@
 
   <hr/>
 
-  <h3>Comments</h3>
-
-  <div id="comments">
-  <%- if @post.comments.any? -%>
-    <%= render :partial => @post.comments %>
-  <%- else -%>
-    <p>Nobody commented this post yet.</p>
-  <%- end -%>
-  </div>
-
-  <%= render "comments/form", :post => @post, :comment => Comment.new %>
+ 
 </div>

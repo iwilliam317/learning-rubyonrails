@@ -61,7 +61,7 @@ flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(pos
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :excerpt, :body, :user_id, :permalink, :draft,  category_ids: [])
+      params.require(:post).permit(:title, :excerpt, :body, :user_id, :slug, :draft, :published_at, category_ids: [])
     end
 
     def list_resources
